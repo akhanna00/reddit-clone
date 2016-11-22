@@ -11,4 +11,14 @@ angular.module("myApp", [])
     {title: 'post 4', upvotes: 43},
     {title: 'post 5', upvotes: 12},
   ];
+  // Create a function to add posts
+  $scope.addPost = function() {
+    if (!$sope.title || $scope.title === '') { return; }
+    $scope.posts.push({title: 'A new post', upvotes: 0});
+  }
+
+  // Create a function to add upvotes
+  $scope.upvote = function(post) {
+    post.upvotes += 1;
+  }
 }]);
