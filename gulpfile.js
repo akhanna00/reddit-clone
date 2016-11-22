@@ -19,10 +19,10 @@ gulp.task('minify-js', function() {
 
 // Minify css and rename it
 gulp.task('minify-css', function() {
-    return gulp.src('app/css/style.css')
+    return gulp.src('app/**/*.css')
         .pipe(cssnano())
         .pipe(rename({suffix: '.min'}))
-        .pipe(gulp.dest('dist/css'))
+        .pipe(gulp.dest('dist/'))
 });
 
 // Minify html and rename it
@@ -30,7 +30,7 @@ gulp.task('minify-html', function() {
     return gulp.src('app/**/*.html')
         .pipe(htmlmin({collapseWhitespace: true, removeComments: true}))
         .pipe(gulpIf('!index.max.html', rename({suffix: '.min'}), rename("index.html")))
-        .pipe(gulp.dest('dist'))
+        .pipe(gulp.dest('dist/'))
 });
 
 // Sync with browser
